@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    
+  "dev": "nodemon server.js",
+
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +17,7 @@
     "classnames": "^2.5.1",
     "cors": "^2.8.5",
     "mongoose": "^8.9.3",
-    "react-player": "^2.16.0"
+    "react-player": "^2.16.0",
+    "vite": "^6.2.2"
   }
 }
