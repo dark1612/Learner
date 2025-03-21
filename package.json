@@ -5,7 +5,11 @@
   "scripts": {
     
   "dev": "nodemon server.js",
+<<<<<<< HEAD
   "build": "vite build",
+=======
+    "build": "vite build",
+>>>>>>> e14a4918ffeccc6a826f5cae0fd8a5d47e708921
 
 
     "test": "echo \"Error: no test specified\" && exit 1"
