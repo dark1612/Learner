@@ -124,6 +124,11 @@ function VideoPlayer({
     }
   }, [played]);
 
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
   return (
     <div
       ref={playerContainerRef}
@@ -234,4 +239,8 @@ function VideoPlayer({
   );
 }
 
+<<<<<<< HEAD
 export default VideoPlayer;
+=======
+export default VideoPlayer;
+>>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815

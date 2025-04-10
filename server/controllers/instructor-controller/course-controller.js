@@ -1,11 +1,24 @@
 const Course = require("../../models/Course");
 
+<<<<<<< HEAD
 const addNewCourse = async (req, res) => {
   try {
     const courseData = req.body;
     const newlyCreatedCourse = new Course(courseData);
     const saveCourse = await newlyCreatedCourse.save();
 
+=======
+
+const addNewCourse = async (req, res) => {
+  try {
+    const courseData = req.body;
+    const courseFile=req.file;
+    const newlyCreatedCourse = new Course(courseData);
+    const saveCourse = await newlyCreatedCourse.save();
+
+
+
+>>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
     if (saveCourse) {
       res.status(201).json({
         success: true,
@@ -22,8 +35,11 @@ const addNewCourse = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 const getAllCourses = async (req, res) => {
   try {
     const coursesList = await Course.find({});
@@ -66,6 +82,7 @@ const getCourseDetailsByID = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 const deleteCourseById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -94,6 +111,8 @@ const deleteCourseById = async (req, res) => {
 };
 
 
+=======
+>>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 const updateCourseByID = async (req, res) => {
   try {
     const { id } = req.params;
@@ -126,10 +145,53 @@ const updateCourseByID = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
+=======
+const deleteCourseByID = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({
+        success: false,
+        message: "Course ID is required",
+      });
+    }
+
+    const deletedCourse = await Course.findByIdAndDelete(id);
+
+    if (!deletedCourse) {
+      return res.status(404).json({
+        success: false,
+        message: "Course not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Course deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting course:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+
+
+>>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 module.exports = {
   addNewCourse,
   getAllCourses,
   updateCourseByID,
   getCourseDetailsByID,
+<<<<<<< HEAD
   deleteCourseById,
 };
+=======
+  deleteCourseByID,
+};
+>>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815

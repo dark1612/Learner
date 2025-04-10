@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
@@ -141,3 +142,14 @@ function InstructorDashboard({ listOfCourses }) {
 }
 
 export default InstructorDashboard;
+=======
+
+
+function AdminDashboard(){
+    return (
+        <div>Admin Dashboard</div>
+    );
+}
+
+export default AdminDashboard;
+>>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815

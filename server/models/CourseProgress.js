@@ -7,7 +7,11 @@ const LectureProgressSchema = new mongoose.Schema({
 });
 
 const CourseProgressSchema = new mongoose.Schema({
+<<<<<<< HEAD
   userId: String,
+=======
+  
+>>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
   courseId: String,
   completed: Boolean,
   completionDate: Date,
