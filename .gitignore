@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 
 
 
+=======
+.vercel
+# node modules
+>>>>>>> 709515f372eb0e295775e327d3d070327054f0ee
 node_modules/
 .env
 
