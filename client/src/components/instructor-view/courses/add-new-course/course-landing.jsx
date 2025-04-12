@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
 import FormControls from "@/components/common-form/form-controls";
-=======
-import FormControls from "@/components/common-form/form-control";
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { courseLandingPageFormControls } from "@/config";
 import { InstructorContext } from "@/context/instructor-context";

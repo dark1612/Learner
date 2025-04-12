@@ -48,8 +48,4 @@ function MediaProgressbar({ isMediaUploading, progress }) {
   );
 }
 
-<<<<<<< HEAD
 export default MediaProgressbar;
-=======
-export default MediaProgressbar;
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815

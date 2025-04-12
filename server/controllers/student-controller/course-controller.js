@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const Course = require("../../models/Course");
 const StudentCourses = require("../../models/StudentCourses");
 
@@ -14,20 +13,6 @@ const getAllStudentViewCourses = async (req, res) => {
     console.log(req.query, "req.query");
 
     let filters = {};
-=======
-const Course=require('../../models/Course')
-const StudentCourses=require("../../models/StudentCourses");
-const getAllStudentViewCourses =async(req,res)=>{
-    try{
-        const {
-            category = [],
-            level = [],
-            primaryLanguage = [],
-            sortBy = "title-atoz",
-          } = req.query;
-      
-        let filters = {};
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
     if (category.length) {
       filters.category = { $in: category.split(",") };
     }
@@ -40,7 +25,6 @@ const getAllStudentViewCourses =async(req,res)=>{
 
     let sortParam = {};
     switch (sortBy) {
-<<<<<<< HEAD
       case "price-lowtohigh":
         sortParam.pricing = 1;
 
@@ -51,10 +35,6 @@ const getAllStudentViewCourses =async(req,res)=>{
         break;
       case "title-atoz":
         sortParam.title = 1;
-=======
-      case "title-atoz":
-      sortParam.title = 1;
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 
         break;
       case "title-ztoa":
@@ -63,7 +43,6 @@ const getAllStudentViewCourses =async(req,res)=>{
         break;
 
       default:
-<<<<<<< HEAD
         sortParam.pricing = 1;
         break;
     }
@@ -145,63 +124,3 @@ module.exports = {
   getStudentViewCourseDetails,
   checkCoursePurchaseInfo,
 };
-=======
-        sortParam.title = 1;
-        break;
-    }
-
-
-        const coursesList=await Course.find(filters).sort(sortParam);
-
-     
-        res.status(200).json({
-            success:true,
-            data:coursesList,
-        });
-
-    }
-    catch(e){
-        console.log(e);
-        res.status(500).json({
-            success:false,
-            message:"Some error occured!",
-        });
-    }
-};
-
-
-
-const getStudentViewCourseDetails =async(req,res)=>{
-    try{
-        const {id}=req.params;
-        const courseDetails= await Course.findById(id);
-
-        if(!courseDetails){
-            return res.status(404).json({
-                success:false,
-                message:"No course found",
-                data:null,
-            });
-        }
-        
-        res.status(200).json({
-            success:true,
-            data:courseDetails,
-        });
-
-
-        
-
-    }
-    catch(e){
-        console.log(e);
-        res.status(500).json({
-            success:false,
-            message:'Some error occured!'
-        })
-    }
-};
-
-
-module.exports={getAllStudentViewCourses,getStudentViewCourseDetails};
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815

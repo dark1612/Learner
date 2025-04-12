@@ -1,6 +1,5 @@
 import axiosInstance from "@/api/axiosInstance";
 
-<<<<<<< HEAD
 
 export async function registerService(formData) {
   const { data } = await axiosInstance.post("/auth/register", {
@@ -23,10 +22,6 @@ export async function checkAuthService() {
   return data;
 }
 
-=======
-import axios from 'axios';
-const BASE_URL = 'http://localhost:5000';
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 export async function mediaUploadService(formData, onProgressCallback) {
   const { data } = await axiosInstance.post("/media/upload", formData, {
     onUploadProgress: (progressEvent) => {
@@ -51,7 +46,6 @@ export async function fetchInstructorCourseListService() {
 
   return data;
 }
-<<<<<<< HEAD
 export const deleteCourseByIdService = async (courseId) => {
   try {
     // Updated URL to match your actual backend route
@@ -65,9 +59,6 @@ export const deleteCourseByIdService = async (courseId) => {
     };
   }
 };
-=======
-
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 export async function addNewCourseService(formData) {
   const { data } = await axiosInstance.post(`/instructor/course/add`, formData);
 
@@ -104,27 +95,12 @@ export async function mediaBulkUploadService(formData, onProgressCallback) {
   return data;
 }
 
-<<<<<<< HEAD
-=======
-export async function deleteCourseByIdService(id) {
-  try {
-    const { data } = await axiosInstance.delete(`/instructor/course/delete/${id}`);
-    return data;
-  } catch (error) {
-    console.error("Error deleting course:", error);
-    throw error;
-  }
-}
-
-
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 export async function fetchStudentViewCourseListService(query) {
   const { data } = await axiosInstance.get(`/student/course/get?${query}`);
 
   return data;
 }
 
-<<<<<<< HEAD
 export async function fetchStudentViewCourseDetailsService(courseId) {
   const { data } = await axiosInstance.get(
     `/student/course/get/details/${courseId}`
@@ -182,56 +158,10 @@ export async function markLectureAsViewedService(userId, courseId, lectureId) {
     `/student/course-progress/mark-lecture-viewed`,
     {
       userId,
-=======
-
-// export async function fetchStudentViewCourseListService(query) {
-//   const { data } = await axiosInstance.get(`/student/course/get?${query}`);
-
-//   return data;
-// }
-
-// export async function fetchStudentViewCourseDetailsService(courseId) {
-//   const { data } = await axiosInstance.get(
-//     `/student/course/get/details/${courseId}`
-//   );
-
-//   return data;
-// }
-export async function fetchStudentViewCourseDetailsService(courseId) {
-  const { data } = await axiosInstance.get
-  (`/student/course/get/details/${courseId}`);
-
-  return data;
-}
-
-
-// Updated fetch service without userId
-export async function fetchStudentBoughtCoursesService() {
-  const { data } = await axiosInstance.get("/student/courses-bought/get");
-  return data;
-}
-
-
-
-export async function getCurrentCourseProgressService(courseId) {
-  // Fetch progress for a specific course
-  const { data } = await axiosInstance.get(
-    `/student/course-progress/get/${courseId}`
-  );
-  return data;
-}
-
-export async function markLectureAsViewedService(courseId, lectureId) {
-  // Mark a specific lecture as viewed
-  const { data } = await axiosInstance.post(
-    `/student/course-progress/mark-lecture-viewed`,
-    {
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
       courseId,
       lectureId,
     }
   );
-<<<<<<< HEAD
 
   return data;
 }
@@ -245,18 +175,5 @@ export async function resetCourseProgressService(userId, courseId) {
     }
   );
 
-=======
-  return data;
-}
-
-export async function resetCourseProgressService(courseId) {
-  // Reset progress for a specific course
-  const { data } = await axiosInstance.post(
-    `/student/course-progress/reset-progress`,
-    {
-      courseId,
-    }
-  );
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
   return data;
 }

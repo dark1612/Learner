@@ -1,10 +1,6 @@
 import CourseCurriculum from "@/components/instructor-view/courses/add-new-course/course-curriculum";
 import CourseLanding from "@/components/instructor-view/courses/add-new-course/course-landing";
-<<<<<<< HEAD
 import CourseSettings from "@/components/instructor-view/courses/add-new-course/course-settings";
-=======
-import CourseSettings from "@/components/instructor-view/courses/add-new-course/course-setting";
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -12,7 +8,6 @@ import {
   courseCurriculumInitialFormData,
   courseLandingInitialFormData,
 } from "@/config";
-<<<<<<< HEAD
 import { AuthContext } from "@/context/auth-context";
 import { InstructorContext } from "@/context/instructor-context";
 import {
@@ -20,13 +15,6 @@ import {
   fetchInstructorCourseDetailsService,
   updateCourseByIdService,
 } from "@/services";
-=======
-
-import { InstructorContext } from "@/context/instructor-context";
-import { addNewCourseService, 
-    fetchInstructorCourseDetailsService, 
-    updateCourseByIdService} from "@/services";
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -40,18 +28,11 @@ function AddNewCoursePage() {
     setCurrentEditedCourseId,
   } = useContext(InstructorContext);
 
-<<<<<<< HEAD
   const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
   const params = useParams();
 
   console.log(params);
-=======
-  
-  const navigate = useNavigate();
-  const params=useParams();
-  console.log("Params from useParams:",params);
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 
   function isEmpty(value) {
     if (Array.isArray(value)) {
@@ -80,11 +61,7 @@ function AddNewCoursePage() {
       }
 
       if (item.freePreview) {
-<<<<<<< HEAD
         hasFreePreview = true; //found at least one free preview
-=======
-        hasFreePreview = true;
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
       }
     }
 
@@ -93,17 +70,12 @@ function AddNewCoursePage() {
 
   async function handleCreateCourse() {
     const courseFinalFormData = {
-<<<<<<< HEAD
       instructorId: auth?.user?._id,
       instructorName: auth?.user?.userName,
-=======
-      
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
       date: new Date(),
       ...courseLandingFormData,
       students: [],
       curriculum: courseCurriculumFormData,
-<<<<<<< HEAD
       isPublised: true,
     };
 
@@ -114,14 +86,6 @@ function AddNewCoursePage() {
             courseFinalFormData
           )
         : await addNewCourseService(courseFinalFormData);
-=======
-      isPublished: true,
-    };
-
-    const response = 
-    currentEditedCourseId!==null ? await updateCourseByIdService(currentEditedCourseId,courseFinalFormData):
-    await addNewCourseService(courseFinalFormData);
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 
     if (response?.success) {
       setCourseLandingFormData(courseLandingInitialFormData);
@@ -132,10 +96,6 @@ function AddNewCoursePage() {
 
     console.log(courseFinalFormData, "courseFinalFormData");
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
   async function fetchCurrentCourseDetails() {
     const response = await fetchInstructorCourseDetailsService(
       currentEditedCourseId
@@ -155,42 +115,25 @@ function AddNewCoursePage() {
       setCourseCurriculumFormData(response?.data?.curriculum);
     }
 
-<<<<<<< HEAD
     console.log(response, "response");
-=======
-      console.log(response, "response");
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
   }
 
   useEffect(() => {
     if (currentEditedCourseId !== null) fetchCurrentCourseDetails();
   }, [currentEditedCourseId]);
 
-<<<<<<< HEAD
   useEffect(() => {
     if (params?.courseId) setCurrentEditedCourseId(params?.courseId);
   }, [params?.courseId]);
 
   console.log(params, currentEditedCourseId, "params");
-=======
-  useEffect(()=>{
-    if(params?.courseId) setCurrentEditedCourseId(params?.courseId);
-
-  },[params?.courseId]);
-
-
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 
   return (
     <div className="container mx-auto p-4">
       <div className="flex justify-between">
         <h1 className="text-3xl font-extrabold mb-5">Create a new course</h1>
         <Button
-<<<<<<< HEAD
           disabled={!validateFormData()}
-=======
-          // disabled={!validateFormData()}
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
           className="text-sm tracking-wider font-bold px-8"
           onClick={handleCreateCourse}
         >
@@ -225,8 +168,4 @@ function AddNewCoursePage() {
   );
 }
 
-<<<<<<< HEAD
-=======
-// Export must be at the top level
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 export default AddNewCoursePage;

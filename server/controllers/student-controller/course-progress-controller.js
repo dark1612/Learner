@@ -1,6 +1,5 @@
 const CourseProgress = require("../../models/CourseProgress");
 const Course = require("../../models/Course");
-<<<<<<< HEAD
 const StudentCourses = require("../../models/StudentCourses");
 
 //mark current lecture as viewed
@@ -12,19 +11,6 @@ const markCurrentLectureAsViewed = async (req, res) => {
     if (!progress) {
       progress = new CourseProgress({
         userId,
-=======
-
-// Mark the current lecture as viewed
-const markCurrentLectureAsViewed = async (req, res) => {
-  try {
-    const { courseId, lectureId } = req.body;
-
-    // Find the progress for the course
-    let progress = await CourseProgress.findOne({ courseId });
-    if (!progress) {
-      // If no progress exists, create a new progress entry
-      progress = new CourseProgress({
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
         courseId,
         lecturesProgress: [
           {
@@ -36,10 +22,6 @@ const markCurrentLectureAsViewed = async (req, res) => {
       });
       await progress.save();
     } else {
-<<<<<<< HEAD
-=======
-      // Check if the lecture is already marked as viewed
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
       const lectureProgress = progress.lecturesProgress.find(
         (item) => item.lectureId === lectureId
       );
@@ -48,10 +30,6 @@ const markCurrentLectureAsViewed = async (req, res) => {
         lectureProgress.viewed = true;
         lectureProgress.dateViewed = new Date();
       } else {
-<<<<<<< HEAD
-=======
-        // Add new lecture progress
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
         progress.lecturesProgress.push({
           lectureId,
           viewed: true,
@@ -61,13 +39,8 @@ const markCurrentLectureAsViewed = async (req, res) => {
       await progress.save();
     }
 
-<<<<<<< HEAD
     const course = await Course.findById(courseId);
 
-=======
-    // Fetch the course details
-    const course = await Course.findById(courseId);
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
     if (!course) {
       return res.status(404).json({
         success: false,
@@ -75,11 +48,7 @@ const markCurrentLectureAsViewed = async (req, res) => {
       });
     }
 
-<<<<<<< HEAD
     //check all the lectures are viewed or not
-=======
-    // Check if all lectures are viewed
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
     const allLecturesViewed =
       progress.lecturesProgress.length === course.curriculum.length &&
       progress.lecturesProgress.every((item) => item.viewed);
@@ -87,10 +56,6 @@ const markCurrentLectureAsViewed = async (req, res) => {
     if (allLecturesViewed) {
       progress.completed = true;
       progress.completionDate = new Date();
-<<<<<<< HEAD
-
-=======
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
       await progress.save();
     }
 
@@ -100,22 +65,14 @@ const markCurrentLectureAsViewed = async (req, res) => {
       data: progress,
     });
   } catch (error) {
-<<<<<<< HEAD
     console.log(error);
     res.status(500).json({
       success: false,
       message: "Some error occured!",
-=======
-    console.error(error);
-    res.status(500).json({
-      success: false,
-      message: "Some error occurred!",
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
     });
   }
 };
 
-<<<<<<< HEAD
 //get current course progress
 const getCurrentCourseProgress = async (req, res) => {
   try {
@@ -147,17 +104,6 @@ const getCurrentCourseProgress = async (req, res) => {
       !currentUserCourseProgress ||
       currentUserCourseProgress?.lecturesProgress?.length === 0
     ) {
-=======
-// Get current course progress
-const getCurrentCourseProgress = async (req, res) => {
-  try {
-    const { courseId } = req.params;
-
-    // Fetch the course progress
-    const currentCourseProgress = await CourseProgress.findOne({ courseId });
-
-    if (!currentCourseProgress || currentCourseProgress?.lecturesProgress?.length === 0) {
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
       const course = await Course.findById(courseId);
       if (!course) {
         return res.status(404).json({
@@ -168,34 +114,21 @@ const getCurrentCourseProgress = async (req, res) => {
 
       return res.status(200).json({
         success: true,
-<<<<<<< HEAD
         message: "No progress found, you can start watching the course",
         data: {
           courseDetails: course,
           progress: [],
           isPurchased: true,
-=======
-        message: "No progress found. You can start watching the course.",
-        data: {
-          courseDetails: course,
-          progress: [],
-          completed: false,
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
         },
       });
     }
 
-<<<<<<< HEAD
-=======
-    // Fetch the course details
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
     const courseDetails = await Course.findById(courseId);
 
     res.status(200).json({
       success: true,
       data: {
         courseDetails,
-<<<<<<< HEAD
         progress: currentUserCourseProgress.lecturesProgress,
         completed: currentUserCourseProgress.completed,
         completionDate: currentUserCourseProgress.completionDate,
@@ -219,28 +152,6 @@ const resetCurrentCourseProgress = async (req, res) => {
 
     const progress = await CourseProgress.findOne({ userId, courseId });
 
-=======
-        progress: currentCourseProgress.lecturesProgress,
-        completed: currentCourseProgress.completed,
-        completionDate: currentCourseProgress.completionDate,
-      },
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      success: false,
-      message: "Some error occurred!",
-    });
-    }
-};
-
-// Reset course progress
-const resetCurrentCourseProgress = async (req, res) => {
-  try {
-    const { courseId } = req.body;
-
-    const progress = await CourseProgress.findOne({ courseId });
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
     if (!progress) {
       return res.status(404).json({
         success: false,
@@ -248,10 +159,6 @@ const resetCurrentCourseProgress = async (req, res) => {
       });
     }
 
-<<<<<<< HEAD
-=======
-    // Reset the progress
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
     progress.lecturesProgress = [];
     progress.completed = false;
     progress.completionDate = null;
@@ -264,17 +171,10 @@ const resetCurrentCourseProgress = async (req, res) => {
       data: progress,
     });
   } catch (error) {
-<<<<<<< HEAD
     console.log(error);
     res.status(500).json({
       success: false,
       message: "Some error occured!",
-=======
-    console.error(error);
-    res.status(500).json({
-      success: false,
-      message: "Some error occurred!",
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
     });
   }
 };

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 export const signUpFormControls = [
   {
     name: "userName",
@@ -50,9 +49,6 @@ export const initialSignUpFormData = {
   userEmail: "",
   password: "",
 };
-=======
-
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
 
 export const languageOptions = [
   { id: "english", label: "English" },
@@ -132,7 +128,6 @@ export const courseLandingPageFormControls = [
     type: "text",
     placeholder: "Enter course description",
   },
-<<<<<<< HEAD
   {
     name: "pricing",
     label: "Pricing",
@@ -140,9 +135,6 @@ export const courseLandingPageFormControls = [
     type: "number",
     placeholder: "Enter course pricing",
   },
-=======
-
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
   {
     name: "objectives",
     label: "Objectives",
@@ -165,11 +157,7 @@ export const courseLandingInitialFormData = {
   primaryLanguage: "",
   subtitle: "",
   description: "",
-<<<<<<< HEAD
   pricing: "",
-=======
-  
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
   objectives: "",
   welcomeMessage: "",
   image: "",
@@ -179,22 +167,14 @@ export const courseCurriculumInitialFormData = [
   {
     title: "",
     videoUrl: "",
-<<<<<<< HEAD
     freePreview: false,
-=======
-    freePreview: true,
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
     public_id: "",
   },
 ];
 
 export const sortOptions = [
-<<<<<<< HEAD
   { id: "price-lowtohigh", label: "Price: Low to High" },
   { id: "price-hightolow", label: "Price: High to Low" },
-=======
-
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
   { id: "title-atoz", label: "Title: A to Z" },
   { id: "title-ztoa", label: "Title: Z to A" },
 ];
@@ -203,8 +183,4 @@ export const filterOptions = {
   category: courseCategories,
   level: courseLevelOptions,
   primaryLanguage: languageOptions,
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> db7c6e42a7c25664fff6a045b940aacacc517815
