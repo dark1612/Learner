@@ -17,11 +17,11 @@ const MONGO_URI = process.env.MONGO_URI;
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    origin: ["https://learners-dun.vercel.app", "http://localhost:5173"],
+    credentials: true,
   })
 );
+
 
 app.use(express.json());
 
