@@ -1,7 +1,8 @@
 import axios from "axios";
+
 const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL,
-  withCredentials: true, // optional if you're using cookies
+  baseURL: "https://learner-5.onrender.com", // ✅ wrapped in quotes
+  withCredentials: true, // ✅ if you're using cookies/sessions
 });
 
 axiosInstance.interceptors.request.use(
